@@ -4,11 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Balaji Sankaran — IBM i Solution Architect</title>
-  <meta name="description" content="Balaji Sankaran is an IBM i Solution Architect with 16+ years at HCL specializing in cloud migration, IBM i modernization, backup and recovery, automation, and enterprise infrastructure transformation." />
+  <meta name="description" content="Balaji Sankaran is an IBM i Solution Architect with 16+ years at HCLTech specializing in cloud migration, IBM i modernization, backup and recovery, automation, and enterprise infrastructure transformation." />
   <meta name="author" content="Balaji Sankaran" />
-  <meta property="og:title" content="Balaji Sankaran — IBM i Solution Architect" />
-  <meta property="og:description" content="IBM i Solution Architect specializing in cloud migration, modernization, and enterprise infrastructure." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="apple-touch-icon" href="./favicon.svg" />
+
+  <!-- Open Graph / LinkedIn / Facebook preview -->
   <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Balaji Sankaran — IBM i Solution Architect" />
+  <meta property="og:description" content="IBM i Solution Architect with 16+ years at HCLTech. Specializing in cloud migration, modernization, automation, and the future of IBM i in the AI era." />
+  <meta property="og:image" content="./og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://balajisrn.github.io/" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Balaji Sankaran — IBM i Solution Architect" />
+  <meta name="twitter:description" content="IBM i Solution Architect with 16+ years at HCLTech. Cloud migration, modernization, automation." />
+  <meta name="twitter:image" content="./og-image.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -142,6 +158,10 @@
       color: white;
       box-shadow: var(--shadow-sm);
       flex-shrink: 0;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
     }
     nav ul {
       list-style: none;
@@ -485,7 +505,73 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition: none !important; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+    }
+
+    /* ===== Now section ===== */
+    .now-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .now-card {
+      position: relative;
+      padding: 1.75rem 1.5rem 1.5rem;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--color-surface) 92%, transparent), color-mix(in oklab, var(--color-primary) 8%, var(--color-surface)));
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+    .now-card h3 { font-size: var(--text-lg); margin-bottom: 0.5rem; }
+    .now-card p { color: var(--color-text-muted); margin: 0; }
+    .now-dot {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-primary) 25%, transparent);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-primary) 25%, transparent); }
+      50% { box-shadow: 0 0 0 9px color-mix(in oklab, var(--color-primary) 5%, transparent); }
+    }
+    @media (max-width: 960px) {
+      .now-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== Scroll reveal animations ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ===== Active nav state ===== */
+    nav a.is-active {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    nav a {
+      position: relative;
+    }
+    nav a.is-active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
     }
 
     @media print {
@@ -501,17 +587,13 @@
   <header>
     <div class="container nav">
       <a href="#top" class="brand" aria-label="Balaji Sankaran home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M6 18V6h6a4 4 0 0 1 0 8H6"/>
-            <path d="M13 14l5 4"/>
-          </svg>
-        </span>
+        <span class="brand-mark" aria-hidden="true">BS</span>
         <span>Balaji Sankaran</span>
       </a>
       <nav aria-label="Primary navigation">
         <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#now">Now</a></li>
           <li><a href="#expertise">Expertise</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#achievements">Work</a></li>
@@ -535,7 +617,7 @@
       <div>
         <span class="eyebrow">IBM i Solution Architect</span>
         <span class="availability-badge"><span class="availability-dot" aria-hidden="true"></span>Open to opportunities</span>
-        <h1>IBM i architect focused on migration, continuity, automation, and what&rsquo;s next for AI in IBM i environments.</h1>
+        <h1>IBM i architect focused on migration, delivery, continuity, automation, and what&rsquo;s next for AI in IBM i environments.</h1>
         <p class="lead">Balaji Sankaran is an IBM i Solution Architect with 16+ years at HCLTech across delivery and consulting roles, specializing in cloud migration, backup and recovery, AWX-led automation, enterprise modernization, and practical infrastructure transformation.</p>
         <div class="hero-actions">
           <a class="button primary" href="#contact">Get in touch</a>
@@ -558,7 +640,7 @@
             <div class="stat"><strong>16+ yrs</strong><span>IBM i specialization at HCLTech</span></div>
             <div class="stat"><strong>100+</strong><span>Partitions supported across enterprise environments</span></div>
             <div class="stat"><strong>13</strong><span>IBM digital badges on Credly</span></div>
-            <div class="stat"><strong>T&amp;T</strong><span>Transitions, transformations, and cloud migrations across enterprise clients</span></div>
+            <div class="stat"><strong>Multi</strong><span>Transitions, transformations, and cloud migrations across enterprise clients</span></div>
           </div>
         </aside>
       </div>
@@ -597,6 +679,33 @@
         <h3>B.Tech in Information Technology</h3>
         <p>Anna University &middot; Chennai, Tamil Nadu, India</p>
         <p style="color: var(--color-text-faint); font-size: var(--text-sm);">June 2004 &ndash; April 2008</p>
+      </div>
+    </section>
+
+    <section id="now">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Now</div>
+          <h2 style="font-size: var(--text-xl);">What I'm working on right now.</h2>
+        </div>
+        <p>A snapshot of current focus areas, active projects, and the modernization thinking that's shaping day-to-day work.</p>
+      </div>
+      <div class="now-grid">
+        <article class="now-card">
+          <div class="now-dot" aria-hidden="true"></div>
+          <h3>AI for IBM i</h3>
+          <p>Exploring how AI can be applied meaningfully in IBM i environments &mdash; particularly in operational efficiency, knowledge support, and modernization workflows.</p>
+        </article>
+        <article class="now-card">
+          <div class="now-dot" aria-hidden="true"></div>
+          <h3>Ansible Automation</h3>
+          <p>Building reusable Ansible playbooks on the AWX platform to reduce manual operations, standardize repeatable tasks, and accelerate delivery across IBM i environments.</p>
+        </article>
+        <article class="now-card">
+          <div class="now-dot" aria-hidden="true"></div>
+          <h3>Infra Delivery Support</h3>
+          <p>Day-to-day delivery for enterprise IBM i environments &mdash; PTF patching, OS upgrades, HMC and firmware work, change execution, client coordination, and weekly status presentations.</p>
+        </article>
       </div>
     </section>
 
@@ -815,6 +924,49 @@
       });
 
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      /* ===== Scroll reveal ===== */
+      const revealTargets = document.querySelectorAll('section > .section-head, section > .about-copy, section > .education-card, section > .industries-grid, section > .now-grid, section > .expertise-grid, section > .pill-row, section > .timeline, section > .achievement-grid, section > .publication-grid, section > .cred-grid, section > .thought-card, section > .contact-card, .hero > div, .hero-side');
+      revealTargets.forEach(el => el.classList.add('reveal'));
+
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        revealTargets.forEach(el => io.observe(el));
+      } else {
+        revealTargets.forEach(el => el.classList.add('is-visible'));
+      }
+
+      /* ===== Active nav highlighting ===== */
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      const sections = Array.from(navLinks)
+        .map(link => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean);
+
+      const setActive = (id) => {
+        navLinks.forEach(link => {
+          const isMatch = link.getAttribute('href') === '#' + id;
+          link.classList.toggle('is-active', isMatch);
+        });
+      };
+
+      if ('IntersectionObserver' in window && sections.length) {
+        const navIo = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible.length) {
+            setActive(visible[0].target.id);
+          }
+        }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 1] });
+        sections.forEach(s => navIo.observe(s));
+      }
     }());
   </script>
 </body>
