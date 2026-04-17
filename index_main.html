@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Balaji Sankaran — IBM i Solution Architect</title>
+  <meta name="description" content="Balaji Sankaran is an IBM i Solution Architect with 16+ years at HCL specializing in cloud migration, IBM i modernization, backup and recovery, automation, and enterprise infrastructure transformation." />
+  <meta name="author" content="Balaji Sankaran" />
+  <meta property="og:title" content="Balaji Sankaran — IBM i Solution Architect" />
+  <meta property="og:description" content="IBM i Solution Architect specializing in cloud migration, modernization, and enterprise infrastructure." />
+  <meta property="og:type" content="profile" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #fbfbf9;
+      --color-surface-2: #f1efeb;
+      --color-border: #d4d1ca;
+      --color-text: #28251d;
+      --color-text-muted: #696761;
+      --color-text-faint: #9a9892;
+      --color-text-inverse: #f9f8f4;
+      --color-primary: #01696f;
+      --color-primary-hover: #0c4e54;
+      --color-primary-soft: #dce8e6;
+      --color-success: #2f7a4d;
+      --color-success-soft: #d8ead9;
+      --radius-lg: 0.875rem;
+      --radius-xl: 1.25rem;
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+      --shadow-md: 0 8px 24px oklch(0.2 0.01 80 / 0.08);
+      --content-default: 1120px;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --font-display: 'Bricolage Grotesque', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #151412;
+      --color-surface: #1d1b18;
+      --color-surface-2: #26231f;
+      --color-text: #e2dfd8;
+      --color-text-muted: #aba8a1;
+      --color-text-faint: #7d7a74;
+      --color-text-inverse: #12110f;
+      --color-primary: #5aa8af;
+      --color-primary-hover: #7bbec4;
+      --color-primary-soft: #233334;
+      --color-success: #6cc28b;
+      --color-success-soft: #1f3326;
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 12px 32px oklch(0 0 0 / 0.35);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      background:
+        radial-gradient(circle at top right, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent 26%),
+        var(--color-bg);
+      color: var(--color-text);
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: 0.375rem;
+    }
+    .container {
+      width: min(calc(100% - 2rem), var(--content-default));
+      margin: 0 auto;
+    }
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 1rem;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      z-index: 1000;
+    }
+    .skip-link:focus { left: 1rem; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: color-mix(in oklab, var(--color-bg) 82%, transparent);
+      border-bottom: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 76px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: var(--text-sm);
+      letter-spacing: 0.02em;
+    }
+    .brand-mark {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.9rem;
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 45%, white));
+      display: grid;
+      place-items: center;
+      color: white;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav a {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      transition: color var(--transition);
+    }
+    nav a:hover, nav a:focus-visible { color: var(--color-text); }
+    .theme-toggle {
+      border: 1px solid color-mix(in oklab, var(--color-text) 12%, transparent);
+      background: var(--color-surface);
+      color: var(--color-text);
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    main { padding-bottom: 5rem; }
+    section { padding: clamp(3rem, 8vw, 6rem) 0; }
+    .hero {
+      padding-top: clamp(3rem, 10vw, 7rem);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      background: var(--color-success-soft);
+      color: var(--color-success);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-left: 0.5rem;
+    }
+    .availability-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--color-success);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--color-success) 25%, transparent);
+    }
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      line-height: 1.05;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+    h1 { font-size: var(--text-2xl); margin-top: 1.25rem; }
+    .lead {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 42rem;
+      margin-top: 1.25rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .button {
+      min-height: 48px;
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      transition: transform var(--transition), background var(--transition), color var(--transition), border-color var(--transition);
+    }
+    .button:hover { transform: translateY(-1px); }
+    .button.primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .button.primary:hover { background: var(--color-primary-hover); }
+    .button.secondary {
+      background: var(--color-surface);
+      border-color: color-mix(in oklab, var(--color-text) 12%, transparent);
+      color: var(--color-text);
+    }
+
+    .hero-side { display: grid; gap: 1.25rem; }
+    .hero-card, .card, .thought-card, .pub-card, .award-card, .cred-card {
+      background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-card {
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--color-primary), color-mix(in oklab, var(--color-primary) 30%, white));
+    }
+    .photo-card {
+      padding: 1.25rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .profile-photo {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 1.1rem;
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      box-shadow: var(--shadow-sm);
+      background: var(--color-surface-2);
+      margin: 0 auto;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .stat {
+      padding: 1rem;
+      border-radius: 0.875rem;
+      background: var(--color-surface-2);
+      border: 1px solid color-mix(in oklab, var(--color-text) 8%, transparent);
+    }
+    .stat strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      margin-bottom: 0.2rem;
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 2rem;
+    }
+    .section-head p { margin: 0; color: var(--color-text-muted); }
+    .kicker {
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .about-copy, .publication-grid, .award-grid, .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+    .about-copy .card, .expertise-grid .card, .timeline .card, .contact-card, .achievement-grid .card, .thought-card, .pub-card, .award-card, .cred-card, .industry-card, .education-card {
+      padding: 1.5rem;
+    }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .card h3, .pub-card h3, .award-card h3, .cred-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 0.75rem;
+    }
+    .card p, .card li, .hero-card p, .thought-card p, .pub-card p, .photo-card p, .award-card p, .cred-card p {
+      color: var(--color-text-muted);
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: var(--color-surface-2);
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-weight: 700;
+    }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.25rem;
+    }
+    .industry-card {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      padding: 1rem 0.5rem !important;
+      font-weight: 700;
+      font-size: var(--text-sm);
+    }
+    .education-card {
+      background: color-mix(in oklab, var(--color-surface) 92%, transparent);
+      border: 1px solid color-mix(in oklab, var(--color-text) 10%, transparent);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      margin-top: 1.5rem;
+    }
+    .education-card h3 { font-size: var(--text-lg); margin-bottom: 0.5rem; }
+    .education-card p { color: var(--color-text-muted); margin: 0.25rem 0; }
+    .timeline { display: grid; gap: 1.25rem; }
+    .timeline .role-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-bottom: 0.75rem;
+    }
+    .timeline .role-line span {
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+    }
+    .timeline ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .timeline li + li { margin-top: 0.5rem; }
+    .thought-card {
+      margin-top: 1.25rem;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--color-surface) 92%, transparent), color-mix(in oklab, var(--color-primary) 10%, var(--color-surface)));
+    }
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: start;
+      background: linear-gradient(135deg, color-mix(in oklab, var(--color-surface) 90%, transparent), color-mix(in oklab, var(--color-primary) 8%, var(--color-surface)));
+    }
+    .contact-list {
+      list-style: none;
+      margin: 1.25rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+    .contact-list a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--color-text-faint);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero, .section-head, .contact-card, .about-copy, .expertise-grid, .achievement-grid, .publication-grid, .award-grid, .cred-grid {
+        grid-template-columns: 1fr;
+      }
+      .industries-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .nav {
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+      nav ul { gap: 0.75rem; }
+    }
+
+    @media (min-width: 641px) and (max-width: 960px) {
+      .hero { gap: 2rem; }
+      .profile-photo { max-width: 280px; }
+      .button { min-height: 46px; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { flex-direction: column; }
+      nav ul {
+        width: 100%;
+        gap: 0.5rem;
+        row-gap: 0.25rem;
+        justify-content: flex-start;
+      }
+      nav li { flex: 0 0 auto; }
+      .brand { align-self: flex-start; }
+      .hero { padding-top: 2rem; gap: 1.5rem; }
+      .hero-card, .card, .contact-card, .thought-card, .pub-card, .award-card, .cred-card { padding: 1.1rem; }
+      .photo-card { padding: 1rem; }
+      .profile-photo { max-width: 240px; }
+      .stat-grid { grid-template-columns: 1fr; }
+      .industries-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button { width: 100%; }
+      .pill-row { gap: 0.4rem; }
+      .pill { padding: 0.4rem 0.7rem; }
+      .section-head { gap: 1rem; }
+      h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+      .lead { font-size: 1rem; }
+      .availability-badge { margin-left: 0; margin-top: 0.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    @media print {
+      header, footer, .theme-toggle, .hero-actions, .skip-link { display: none !important; }
+      body { background: white; color: black; }
+      section { padding: 1.5rem 0; break-inside: avoid; }
+      .card, .hero-card, .thought-card, .pub-card, .award-card, .cred-card, .education-card { box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Balaji Sankaran home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 18V6h6a4 4 0 0 1 0 8H6"/>
+            <path d="M13 14l5 4"/>
+          </svg>
+        </span>
+        <span>Balaji Sankaran</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#achievements">Work</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#credentials">Credentials</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" id="top">
+      <div>
+        <span class="eyebrow">IBM i Solution Architect</span>
+        <span class="availability-badge"><span class="availability-dot" aria-hidden="true"></span>Open to opportunities</span>
+        <h1>IBM i architect focused on migration, continuity, automation, and what&rsquo;s next for AI in IBM i environments.</h1>
+        <p class="lead">Balaji Sankaran is an IBM i Solution Architect with 16+ years at HCLTech across delivery and consulting roles, specializing in cloud migration, backup and recovery, AWX-led automation, enterprise modernization, and practical infrastructure transformation.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#contact">Get in touch</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/balajisrn" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+          <a class="button secondary" href="./Balaji_Sankaran_Resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        </div>
+      </div>
+      <div class="hero-side">
+        <aside class="photo-card card" aria-label="Profile photo">
+          <img src="./Balaji.jpg" alt="Portrait of Balaji Sankaran" class="profile-photo" width="320" height="400" loading="lazy" />
+          <div>
+            <h2 style="font-size: var(--text-lg);">Balaji Sankaran</h2>
+            <p>IBM i Architect &middot; Morrisville, NC &middot; <a href="mailto:balajisrn@gmail.com" style="color: var(--color-primary); font-weight: 700;">balajisrn@gmail.com</a></p>
+          </div>
+        </aside>
+        <aside class="hero-card" aria-label="Professional summary highlights">
+          <h2 style="font-size: var(--text-xl);">At a glance</h2>
+          <p>Combining technical depth, operational reliability, and modernization thinking to deliver IBM i infrastructure that businesses can trust.</p>
+          <div class="stat-grid">
+            <div class="stat"><strong>16+ yrs</strong><span>IBM i specialization at HCLTech</span></div>
+            <div class="stat"><strong>100+</strong><span>Partitions supported across enterprise environments</span></div>
+            <div class="stat"><strong>13</strong><span>IBM digital badges on Credly</span></div>
+            <div class="stat"><strong>T&amp;T</strong><span>Transitions, transformations, and cloud migrations across enterprise clients</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-head">
+        <div>
+          <div class="kicker">About</div>
+          <h2 style="font-size: var(--text-xl);">A specialist profile built around IBM i transformation.</h2>
+        </div>
+        <p>Balaji brings deep experience in IBM i architecture, operations, and modernization, with a career shaped within HCLTech across roles in HCL Technologies and HCL America since December 2018.</p>
+      </div>
+      <div class="about-copy">
+        <article class="card">
+          <h3>Professional focus</h3>
+          <p>Work spans IBM i administration, cloud migration, operating system upgrades through V7R6, backup and recovery, HMC and firmware management, automation architecture, monitoring, and steady-state operational transitions for customers.</p>
+        </article>
+        <article class="card">
+          <h3>Current direction</h3>
+          <p>Alongside infrastructure delivery, currently exploring how AI can be applied meaningfully in IBM i environments — particularly in operational efficiency, knowledge support, and modernization workflows.</p>
+        </article>
+      </div>
+
+      <div class="kicker" style="margin-top: 2.5rem;">Industries served</div>
+      <div class="industries-grid">
+        <div class="industry-card">Pharma</div>
+        <div class="industry-card">Healthcare</div>
+        <div class="industry-card">Insurance</div>
+        <div class="industry-card">Retail</div>
+        <div class="industry-card">Engineering</div>
+      </div>
+
+      <div class="education-card">
+        <div class="kicker">Education</div>
+        <h3>B.Tech in Information Technology</h3>
+        <p>Anna University &middot; Chennai, Tamil Nadu, India</p>
+        <p style="color: var(--color-text-faint); font-size: var(--text-sm);">June 2004 &ndash; April 2008</p>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Expertise</div>
+          <h2 style="font-size: var(--text-xl);">Core areas of work.</h2>
+        </div>
+        <p>Breadth and seniority across infrastructure delivery, migration planning, resilience, automation, and customer-facing execution.</p>
+      </div>
+      <div class="expertise-grid">
+        <article class="card">
+          <h3>Cloud migration</h3>
+          <p>Migration planning and execution for IBM i environments, including on-prem to Skytap on Azure initiatives, ROBOT HA-driven migration work, phased delivery, risk assessment, and minimal-disruption implementation.</p>
+        </article>
+        <article class="card">
+          <h3>Infrastructure delivery</h3>
+          <p>OS upgrades through V7R6, scratch installs, HMC configuration, firmware work, VIOS management, PTF management, partition builds, and steady-state operational transitions for new customers.</p>
+        </article>
+        <article class="card">
+          <h3>Resilience and recovery</h3>
+          <p>Backup strategy, BRMS, ICC, FalconStor VTL implementation, disaster recovery activities, recovery planning, and operational continuity for critical enterprise workloads.</p>
+        </article>
+        <article class="card">
+          <h3>Automation and modernization</h3>
+          <p>AWX environment setup, Ansible playbook development for repeatable IBM i operations, monitoring solutions, and exploring how AI can be applied meaningfully to IBM i workflows.</p>
+        </article>
+      </div>
+      <div class="pill-row" aria-label="Skills and tools">
+        <span class="pill">IBM i / AS400 / iSeries</span>
+        <span class="pill">OS400 V5R3 to V7R6</span>
+        <span class="pill">Skytap on Azure</span>
+        <span class="pill">FalconStor VTL</span>
+        <span class="pill">BRMS</span>
+        <span class="pill">ICC</span>
+        <span class="pill">VIOS</span>
+        <span class="pill">HMC</span>
+        <span class="pill">Ansible / AWX</span>
+        <span class="pill">AI for IBM i</span>
+        <span class="pill">Halcyon</span>
+        <span class="pill">Robot HA</span>
+        <span class="pill">MIMIX</span>
+        <span class="pill">DR Management</span>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Experience</div>
+          <h2 style="font-size: var(--text-xl);">Career snapshot.</h2>
+        </div>
+        <p>Long-term IBM i specialization within HCL: growing delivery scope, with steady movement into architecture, migration, automation, and customer-facing leadership.</p>
+      </div>
+      <div class="timeline">
+        <article class="card">
+          <div class="role-line">
+            <h3>Consultant &mdash; HCL America Inc.</h3>
+            <span>Dec 2018 &ndash; Present</span>
+          </div>
+          <ul>
+            <li>Lead cloud migration projects for IBM i environments, including infrastructure analysis, remediation planning, and end-to-end execution from on-premises to Skytap on Azure.</li>
+            <li>Deliver IBM i server builds, OS upgrades through V7R6, HMC and firmware activities, BRMS and ICC backup implementations, and FalconStor VTL modernization for cloud and on-prem partitions.</li>
+            <li>Built an AWX automation environment from scratch, integrated IBM i systems, and authored 20&ndash;25 Ansible playbooks for repeatable operational tasks.</li>
+            <li>Executed end-to-end migrations using ROBOT HA and proved out IBM i Migrate While Active for near-zero downtime transitions.</li>
+            <li>Led knowledge transitions for new customers — preparing questionnaires and end-to-end runbooks to enable steady-state operations.</li>
+            <li>Supported presales-aligned solution thinking, client coordination, and proof-of-concept work on Ansible automation and monitoring solutions.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="role-line">
+            <h3>Technical Specialist &mdash; HCL Technologies Ltd.</h3>
+            <span>Jul 2009 &ndash; Nov 2018</span>
+          </div>
+          <ul>
+            <li>Led an IBM i team of 7 supporting a pharma client, owning client coordination, cross-platform dependencies, and end-to-end operations across 100+ partitions.</li>
+            <li>Served as track lead for two years, maintaining 100% SLA on handled tickets, changes, and service requests via Remedy and ServiceNow.</li>
+            <li>Owned quarterly maintenance, DR testing, hardware activities, and internal/external audit support — sustaining maximum uptime for production environments.</li>
+            <li>Managed BRMS-based backup operations including control groups and media policies aligned to client requirements; performed disaster recovery activities including partition creation, LIC and OS install, SAN assignment, and network configuration.</li>
+            <li>Authored knowledge-base articles and operational procedures that improved onboarding, steady-state consistency, and operational resilience.</li>
+          </ul>
+        </article>
+      </div>
+      <article class="thought-card">
+        <h3>Recognition &amp; operational signals</h3>
+        <p>Best Performer awards in 2013 and 2014 &middot; Track lead for two consecutive years &middot; 100% SLA on handled tickets and changes &middot; 100+ IBM i partitions supported across enterprise environments.</p>
+      </article>
+    </section>
+
+    <section id="achievements">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Selected work</div>
+          <h2 style="font-size: var(--text-xl);">Recent accomplishments.</h2>
+        </div>
+        <p>Examples that combine enterprise impact with technical specificity, practical execution, and modernization-focused outcomes.</p>
+      </div>
+      <div class="achievement-grid">
+        <article class="card">
+          <h3>Skytap on Azure migration</h3>
+          <p>Completed end-to-end cloud migration from on-premises infrastructure to Skytap on Azure for IBM i environments using ROBOT HA.</p>
+        </article>
+        <article class="card">
+          <h3>Backup modernization</h3>
+          <p>Implementing FalconStor VTL for IBM i partitions hosted on Skytap, strengthening backup architecture and supporting modernized recovery operations.</p>
+        </article>
+        <article class="card">
+          <h3>Automation architecture</h3>
+          <p>Scratch-built an AWX environment, connected IBM i systems for automation, and authored ~20&ndash;25 Ansible playbooks for repeatable operational tasks.</p>
+        </article>
+        <article class="card">
+          <h3>V7R6 scratch install</h3>
+          <p>Performed scratch installation of the latest IBM i operating system V7R6, alongside HMC V10R3 and VIOS 4.1.0.21 builds on Power infrastructure.</p>
+        </article>
+        <article class="card">
+          <h3>Migrate While Active PoC</h3>
+          <p>Successfully completed proof of concept for IBM i Migrate While Active, demonstrating phased migration with near-zero downtime for production workloads.</p>
+        </article>
+        <article class="card">
+          <h3>Cloud backup with BRMS &amp; ICC</h3>
+          <p>Implemented BRMS and ICC backup solutions across cloud and on-prem partitions, ensuring continuity for critical enterprise workloads.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Publications</div>
+          <h2 style="font-size: var(--text-xl);">Published contribution.</h2>
+        </div>
+        <p>Thought leadership that goes beyond delivery — contributing to the broader modernization conversation around IBM i migration strategy and business continuity.</p>
+      </div>
+      <div class="publication-grid">
+        <article class="pub-card">
+          <h3>IBM i Near-Zero Downtime Migration with MWA</h3>
+          <p>Contributing author on HCLTech's March 2026 white paper on IBM i Migrate While Active — describing how phased migration and background synchronization enable near-zero downtime transitions for IBM i workloads.</p>
+          <a class="button secondary" href="https://www.hcltech.com/white-papers/ibm-i-near-zero-downtime-migration-with-mwa" target="_blank" rel="noopener noreferrer" style="margin-top: 1rem;">Read white paper</a>
+        </article>
+        <article class="pub-card">
+          <h3>Areas of focus</h3>
+          <p>Migration strategy, phased delivery models, business continuity, and modernization patterns that minimize operational risk for legacy-critical workloads in regulated industries.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Credentials</div>
+          <h2 style="font-size: var(--text-xl);">IBM digital badges.</h2>
+        </div>
+        <p>Continued learning and verified IBM ecosystem skills — fitting a modern technical profile focused on enterprise infrastructure and modernization.</p>
+      </div>
+      <div class="cred-grid">
+        <article class="cred-card">
+          <h3>13 badges earned on Credly</h3>
+          <p>Reflecting ongoing professional development across IBM technologies, cloud fundamentals, and related technical learning.</p>
+          <a class="button secondary" href="https://www.credly.com/users/balaji-sankaran" target="_blank" rel="noopener noreferrer" style="margin-top: 1rem;">View Credly profile</a>
+        </article>
+        <article class="cred-card">
+          <h3>Areas covered</h3>
+          <p>IBM Power infrastructure, IBM i administration, cloud fundamentals, security awareness, and modernization-focused learning paths aligned to enterprise client needs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-card card">
+        <div>
+          <div class="kicker">Contact</div>
+          <h2 style="font-size: var(--text-xl);">Open to conversations around IBM i modernization, migration, automation, and AI-led ideas for enterprise infrastructure.</h2>
+          <p>Currently based in Morrisville, North Carolina and open to consulting, full-time, and architect-level opportunities. Happy to discuss IBM i strategy, migration roadmaps, or operational transformation.</p>
+        </div>
+        <div>
+          <h3>Connect</h3>
+          <ul class="contact-list">
+            <li><a href="mailto:balajisrn@gmail.com">&#9993; balajisrn@gmail.com</a></li>
+            <li><a href="tel:+13125602286">&#9742; +1 (312) 560-2286</a></li>
+            <li><a href="https://www.linkedin.com/in/balajisrn" target="_blank" rel="noopener noreferrer">&#128279; LinkedIn &mdash; /in/balajisrn</a></li>
+            <li><a href="https://www.credly.com/users/balaji-sankaran" target="_blank" rel="noopener noreferrer">&#127894; Credly &mdash; 13 IBM badges</a></li>
+            <li><a href="./Balaji_Sankaran_Resume.pdf" target="_blank" rel="noopener noreferrer">&#128196; Open resume PDF</a></li>
+            <li><span style="color: var(--color-text-muted);">&#128205; Morrisville, North Carolina, USA</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>&copy; <span id="year"></span> Balaji Sankaran &middot; IBM i Solution Architect &middot; Built as a one-page professional profile.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+
+      const renderIcon = () => {
+        toggle.innerHTML = theme === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+
+      renderIcon();
+      toggle.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', theme);
+        renderIcon();
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    }());
+  </script>
+</body>
+</html>
